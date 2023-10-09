@@ -3,7 +3,7 @@ resource "aws_eks_cluster" "react-node-eks-cluster" {
     role_arn    = aws_iam_role.ymk_eks_cluster_role.arn
     
     vpc_config  {
-        subnet_ids = data.terraform_remote_state.app_vpc.outputs.subnet_ids
+        subnet_ids = data.terraform_remote_state.eks_vpc.outputs.subnet_ids
     }
 }
 
