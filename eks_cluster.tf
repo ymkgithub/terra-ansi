@@ -1,5 +1,5 @@
 resource "aws_eks_cluster" "react-node-eks-cluster" {
-    name        = "eks cluster"
+    name        = "eks_cluster"
     role_arn    = aws_iam_role.ymk_eks_cluster_role.arn
     
     vpc_config  {

@@ -1,8 +1,8 @@
 resource "aws_eks_node_group" "aws_eks_node_group" {
-    cluster_name    = "eks cluster"
+    cluster_name    = "eks_cluster"
     node_group_name = "eks worker node group"
     node_role_arn   = aws_iam_role.ymk_eks_worker_node_group_role.arn
-    subnet_ids      = data.terraform_remote_state.eks_vpc.outputs.subnet_ids
+    subnet_ids      = data.terraform_remote_state.eks_network.outputs.subnet_ids
 
     scaling_config {
         desired_size    = 3
