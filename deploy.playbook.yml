@@ -1,0 +1,13 @@
+- name: Deploy to K8s
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Deploy User Service
+    shell: |
+      kubectl apply -f react_service.yml
+      kubectl apply -f react_deployment.yml
+  
+  - name: Deploy Customer Service
+    shell: | 
+      kubectl apply -f node_deployment.yml

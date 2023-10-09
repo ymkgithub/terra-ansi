@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-deployment
+spec:
+  selector:
+    matchLabels:
+      app: reactservice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: reactservice
+    spec:
+      containers:
+      - name: reactservice
+        image: 174458904483.dkr.ecr.ap-south-1.amazonaws.com/node:v1
+        ports:
+        - containerPort: 4000
+       
