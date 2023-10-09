@@ -5,3 +5,13 @@ terraform {
   }
  }
 }
+
+data "terraform_remote_state" "eks_vpc" {
+  backend = "s3"
+  config = {
+    bucket         = "terra-ansi"
+    key            = "/statefile.tfstate"
+    region         = "ap-south-1"  # Change to your desired region
+    encrypt        = true         # Enable encryption if needed
+  }
+}
